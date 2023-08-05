@@ -5,6 +5,10 @@
 package com.cbrojas.view;
 
 import com.cbrojas.model.Angulos;
+import com.cbrojas.model.MethodKeyEvent;
+import com.cbrojas.model.Temperaturas;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 /**
  *
@@ -15,10 +19,19 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
     /**
      * Creates new form PanConversorTemperatura
      */
+    Temperaturas temperatura;
     
+    private DecimalFormat formateador;
+    private DecimalFormatSymbols simbolo;
     
     public PanConversorTemperatura() {
         initComponents();
+        temperatura = new Temperaturas();
+        
+        simbolo = new DecimalFormatSymbols();
+        simbolo.setDecimalSeparator('.');
+
+        formateador = new DecimalFormat("#.##", simbolo);
     }
 
     /**
@@ -36,10 +49,10 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtRankine = new javax.swing.JTextField();
+        txtCelsius = new javax.swing.JTextField();
+        txtFahrenheit = new javax.swing.JTextField();
+        txtKelvin = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -70,10 +83,46 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Kelvin:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 210, 40));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 210, 40));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 210, 40));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 210, 40));
+
+        txtRankine.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRankineKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRankineKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtRankine, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 210, 40));
+
+        txtCelsius.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCelsiusKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCelsiusKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtCelsius, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 210, 40));
+
+        txtFahrenheit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFahrenheitKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFahrenheitKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtFahrenheit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 210, 40));
+
+        txtKelvin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtKelvinKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtKelvinKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtKelvin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 210, 40));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 30)); // NOI18N
         jLabel6.setText("CONVERSOR DE UNIDADES");
@@ -81,6 +130,78 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCelsiusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelsiusKeyTyped
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtCelsius.getText()))
+            evt.consume();
+    }//GEN-LAST:event_txtCelsiusKeyTyped
+
+    private void txtCelsiusKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelsiusKeyReleased
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtCelsius.getText()) ? 0 : Double.parseDouble(txtCelsius.getText());
+
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
+            temperatura.setCelsius(num);
+            
+            txtFahrenheit.setText(formateador.format(temperatura.getFahrenheit()));            
+            txtKelvin.setText(formateador.format(temperatura.getKelvin()));
+            txtRankine.setText(formateador.format(temperatura.getRankine()));
+
+        }
+    }//GEN-LAST:event_txtCelsiusKeyReleased
+
+    private void txtKelvinKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKelvinKeyTyped
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtKelvin.getText()))
+            evt.consume();
+    }//GEN-LAST:event_txtKelvinKeyTyped
+
+    private void txtKelvinKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKelvinKeyReleased
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtKelvin.getText()) ? 0 : Double.parseDouble(txtKelvin.getText());
+
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
+            temperatura.setKelvin(num);
+            
+            txtCelsius.setText(formateador.format(temperatura.getCelsius()));
+            txtFahrenheit.setText(formateador.format(temperatura.getFahrenheit()));
+            txtRankine.setText(formateador.format(temperatura.getRankine()));
+
+        }
+    }//GEN-LAST:event_txtKelvinKeyReleased
+
+    private void txtRankineKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRankineKeyTyped
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtRankine.getText()))
+            evt.consume();
+    }//GEN-LAST:event_txtRankineKeyTyped
+
+    private void txtRankineKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRankineKeyReleased
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtRankine.getText()) ? 0 : Double.parseDouble(txtRankine.getText());
+
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
+            temperatura.setRankine(num);
+            
+            txtCelsius.setText(formateador.format(temperatura.getCelsius()));
+            txtFahrenheit.setText(formateador.format(temperatura.getFahrenheit()));            
+            txtKelvin.setText(formateador.format(temperatura.getKelvin()));
+
+        }
+    }//GEN-LAST:event_txtRankineKeyReleased
+
+    private void txtFahrenheitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFahrenheitKeyReleased
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtFahrenheit.getText()) ? 0 : Double.parseDouble(txtFahrenheit.getText());
+
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
+            temperatura.setFahrenheit(num);
+            
+            txtCelsius.setText(formateador.format(temperatura.getCelsius()));            
+            txtKelvin.setText(formateador.format(temperatura.getKelvin()));
+            txtRankine.setText(formateador.format(temperatura.getRankine()));
+
+        }
+    }//GEN-LAST:event_txtFahrenheitKeyReleased
+
+    private void txtFahrenheitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFahrenheitKeyTyped
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtFahrenheit.getText()))
+            evt.consume();
+    }//GEN-LAST:event_txtFahrenheitKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -91,9 +212,9 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtCelsius;
+    private javax.swing.JTextField txtFahrenheit;
+    private javax.swing.JTextField txtKelvin;
+    private javax.swing.JTextField txtRankine;
     // End of variables declaration//GEN-END:variables
 }

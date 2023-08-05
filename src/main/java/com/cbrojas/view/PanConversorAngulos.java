@@ -5,10 +5,10 @@
 package com.cbrojas.view;
 
 import com.cbrojas.model.Angulos;
+import com.cbrojas.model.MethodKeyEvent;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import javax.swing.JTextField;
 
 /**
  *
@@ -25,38 +25,13 @@ public class PanConversorAngulos extends javax.swing.JPanel {
      */
     public PanConversorAngulos() {
         initComponents();
-        
+
         angulo = new Angulos();
-        
+
         simbolo = new DecimalFormatSymbols();
         simbolo.setDecimalSeparator('.');
-        
-        formateador = new DecimalFormat("#.##",simbolo);
-        
-        
-    }
 
-    private void ignorarTeclas(java.awt.event.KeyEvent evt, String cadena) {
-        char c = evt.getKeyChar();
-
-        if (evaluarTeclas(c, cadena)) {
-            evt.consume();
-        }
-
-    }
-
-    private boolean evaluarTeclas(char c, String cadena) {
-        return (c < '0' || c > '9')
-                && c != KeyEvent.VK_BACK_SPACE
-                && (c != '.' || cadena.contains("."))
-                && (c != '-' || cadena.contains("-") || (c == '-' && cadena.length() > 0));
-    }
-
-    private boolean evaluarTeclas(char c, double num) {
-
-        return (c >= '0' && c <= '9' && num != 0)
-                || c == KeyEvent.VK_BACK_SPACE
-                || c == '.';
+        formateador = new DecimalFormat("#.##", simbolo);
 
     }
 
@@ -138,20 +113,20 @@ public class PanConversorAngulos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAnguloSexagesimalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnguloSexagesimalKeyTyped
-        ignorarTeclas(evt, txtAnguloSexagesimal.getText());
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtAnguloSexagesimal.getText()))
+            evt.consume();
     }//GEN-LAST:event_txtAnguloSexagesimalKeyTyped
 
     private void txtAnguloSexagesimalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnguloSexagesimalKeyReleased
-        double num = (txtAnguloSexagesimal.getText().isEmpty() || txtAnguloSexagesimal.getText().equals(".")) ? 0 : Double.parseDouble(txtAnguloSexagesimal.getText());
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtAnguloSexagesimal.getText()) ? 0 : Double.parseDouble(txtAnguloSexagesimal.getText());
 
         if (txtAnguloSexagesimal.getText().isEmpty()) {
             limpiarCampos();
         }
 
-        if (evaluarTeclas(evt.getKeyChar(), num)) {
-            System.out.println(num);
-
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
             angulo.setAnguloSexagesimal(num);
+            
             txtAnguloCentesimal.setText(formateador.format(angulo.getAnguloCentesimal()));
             txtAnguloRadian.setText(formateador.format(angulo.getAnguloRadian()));
 
@@ -161,16 +136,16 @@ public class PanConversorAngulos extends javax.swing.JPanel {
     }//GEN-LAST:event_txtAnguloSexagesimalKeyReleased
 
     private void txtAnguloCentesimalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnguloCentesimalKeyTyped
-        ignorarTeclas(evt, txtAnguloCentesimal.getText());
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtAnguloCentesimal.getText()))
+            evt.consume();
     }//GEN-LAST:event_txtAnguloCentesimalKeyTyped
 
     private void txtAnguloCentesimalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnguloCentesimalKeyReleased
-        double num = (txtAnguloCentesimal.getText().isEmpty() || txtAnguloCentesimal.getText().equals(".")) ? 0 : Double.parseDouble(txtAnguloCentesimal.getText());
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtAnguloCentesimal.getText()) ? 0 : Double.parseDouble(txtAnguloCentesimal.getText());
 
-        if (evaluarTeclas(evt.getKeyChar(), num)) {
-            System.out.println(num);
-
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
             angulo.setAnguloCentesimal(num);
+            
             txtAnguloSexagesimal.setText(formateador.format(angulo.getAnguloSexagesimal()));
             txtAnguloRadian.setText(formateador.format(angulo.getAnguloRadian()));
 
@@ -179,16 +154,16 @@ public class PanConversorAngulos extends javax.swing.JPanel {
     }//GEN-LAST:event_txtAnguloCentesimalKeyReleased
 
     private void txtAnguloRadianKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnguloRadianKeyTyped
-        ignorarTeclas(evt, txtAnguloRadian.getText());
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtAnguloRadian.getText()))
+            evt.consume();
     }//GEN-LAST:event_txtAnguloRadianKeyTyped
 
     private void txtAnguloRadianKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnguloRadianKeyReleased
-        double num = (txtAnguloRadian.getText().isEmpty() || txtAnguloRadian.getText().equals(".")) ? 0 : Double.parseDouble(txtAnguloRadian.getText());
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtAnguloRadian.getText()) ? 0 : Double.parseDouble(txtAnguloRadian.getText());
 
-        if (evaluarTeclas(evt.getKeyChar(), num)) {
-            System.out.println(num);
-
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
             angulo.setAnguloRadian(num);
+            
             txtAnguloCentesimal.setText(formateador.format(angulo.getAnguloCentesimal()));
             txtAnguloSexagesimal.setText(formateador.format(angulo.getAnguloSexagesimal()));
         }
