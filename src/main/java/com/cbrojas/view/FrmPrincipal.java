@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author brand
+ * @author cbrojas
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -22,7 +22,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     public FrmPrincipal() {
         initComponents();
-        
+
     }
 
     private void showPanel(JPanel panel12) {
@@ -106,31 +106,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConvertirMonedasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirMonedasActionPerformed
-
-        try {
-            showPanel(panMonedas);
-        } catch (Exception e) {
-            System.out.println("\n\n***********ERROR*********MONEDA***********");
-            e.printStackTrace();
-        }
+        showPanel(panMonedas);
     }//GEN-LAST:event_btnConvertirMonedasActionPerformed
 
     private void btnConvertirTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirTemperaturaActionPerformed
-        try {
-            showPanel(panTemperatura);
-        } catch (Exception e) {
-            System.out.println("\n\n***********ERROR************TEMPERATURA********");
-            e.printStackTrace();
-        }
+        showPanel(panTemperatura);
     }//GEN-LAST:event_btnConvertirTemperaturaActionPerformed
 
     private void ConvertirAngulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertirAngulosActionPerformed
-        try {
-            showPanel(panAngulos);
-        } catch (Exception e) {
-            System.out.println("\n\n***********ERROR*************ANGULOS*******");
-            e.printStackTrace();
-        }
+        showPanel(panAngulos);
     }//GEN-LAST:event_ConvertirAngulosActionPerformed
 
     /**

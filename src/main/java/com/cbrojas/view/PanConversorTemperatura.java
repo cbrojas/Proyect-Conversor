@@ -4,15 +4,19 @@
  */
 package com.cbrojas.view;
 
+import com.cbrojas.model.Angulos;
+
 /**
  *
- * @author brand
+ * @author cbrojas
  */
 public class PanConversorTemperatura extends javax.swing.JPanel {
 
     /**
      * Creates new form PanConversorTemperatura
      */
+    
+    
     public PanConversorTemperatura() {
         initComponents();
     }

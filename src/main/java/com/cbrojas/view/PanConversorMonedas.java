@@ -6,7 +6,7 @@ package com.cbrojas.view;
 
 /**
  *
- * @author brand
+ * @author cbrojas
  */
 public class PanConversorMonedas extends javax.swing.JPanel {
 

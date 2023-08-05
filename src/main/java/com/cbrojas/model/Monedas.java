@@ -6,12 +6,15 @@ package com.cbrojas.model;
 
 /**
  *
- * @author brand
+ * @author cbrojas
  */
 
 public class Monedas {
     
-    
+    /**
+     * Declaramos las constantes que nos ayudaran a realizar las conversiones de monedas
+     * los valores de las constantes estan en base al tipo de cambio con el Dolar USD
+     */
     private static final double USD=1.00;
     private static final double PEN=3.67;
     private static final double EUR=0.91;
