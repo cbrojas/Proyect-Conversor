@@ -55,35 +55,44 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
         txtKelvin = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(800, 600));
-        setMinimumSize(new java.awt.Dimension(800, 600));
+        setMaximumSize(new java.awt.Dimension(660, 500));
+        setMinimumSize(new java.awt.Dimension(660, 500));
+        setPreferredSize(new java.awt.Dimension(660, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(237, 237, 237));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 600));
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(660, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(31, 58, 147));
         jLabel1.setText("DE TEMPERATURA");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 58, 147));
         jLabel2.setText("Rankine:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(31, 58, 147));
         jLabel3.setText("Celsius:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(31, 58, 147));
         jLabel4.setText("Fahrenheit:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(31, 58, 147));
         jLabel5.setText("Kelvin:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, -1, -1));
 
+        txtRankine.setBackground(new java.awt.Color(216, 216, 216));
+        txtRankine.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtRankine.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtRankineKeyReleased(evt);
@@ -92,8 +101,10 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
                 txtRankineKeyTyped(evt);
             }
         });
-        jPanel1.add(txtRankine, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 210, 40));
+        jPanel1.add(txtRankine, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 210, 40));
 
+        txtCelsius.setBackground(new java.awt.Color(216, 216, 216));
+        txtCelsius.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtCelsius.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCelsiusKeyReleased(evt);
@@ -102,8 +113,10 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
                 txtCelsiusKeyTyped(evt);
             }
         });
-        jPanel1.add(txtCelsius, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 210, 40));
+        jPanel1.add(txtCelsius, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 210, 40));
 
+        txtFahrenheit.setBackground(new java.awt.Color(216, 216, 216));
+        txtFahrenheit.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtFahrenheit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtFahrenheitKeyReleased(evt);
@@ -112,8 +125,10 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
                 txtFahrenheitKeyTyped(evt);
             }
         });
-        jPanel1.add(txtFahrenheit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 210, 40));
+        jPanel1.add(txtFahrenheit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 210, 40));
 
+        txtKelvin.setBackground(new java.awt.Color(216, 216, 216));
+        txtKelvin.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtKelvin.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtKelvinKeyReleased(evt);
@@ -122,13 +137,14 @@ public class PanConversorTemperatura extends javax.swing.JPanel {
                 txtKelvinKeyTyped(evt);
             }
         });
-        jPanel1.add(txtKelvin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 210, 40));
+        jPanel1.add(txtKelvin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 210, 40));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 30)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(31, 58, 147));
         jLabel6.setText("CONVERSOR DE UNIDADES");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCelsiusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelsiusKeyTyped

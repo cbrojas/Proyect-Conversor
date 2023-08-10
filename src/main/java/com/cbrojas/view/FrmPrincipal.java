@@ -48,59 +48,73 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnConvertirMonedas = new javax.swing.JButton();
-        btnConvertirTemperatura = new javax.swing.JButton();
         ConvertirAngulos = new javax.swing.JButton();
         panDesktop = new javax.swing.JPanel();
+        btnConvertirTemperatura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 700));
+        setMaximumSize(new java.awt.Dimension(660, 580));
+        setMinimumSize(new java.awt.Dimension(660, 580));
+        setPreferredSize(new java.awt.Dimension(660, 580));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(237, 237, 237));
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 700));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnConvertirMonedas.setBackground(new java.awt.Color(164, 198, 233));
+        btnConvertirMonedas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnConvertirMonedas.setForeground(new java.awt.Color(31, 58, 147));
         btnConvertirMonedas.setText("Conversor de Monedas");
         btnConvertirMonedas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConvertirMonedasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConvertirMonedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 206, 41));
+        jPanel1.add(btnConvertirMonedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 41));
 
-        btnConvertirTemperatura.setText("Conversor de Temperaturas");
-        btnConvertirTemperatura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConvertirTemperaturaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnConvertirTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 206, 41));
-
+        ConvertirAngulos.setBackground(new java.awt.Color(164, 198, 233));
+        ConvertirAngulos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ConvertirAngulos.setForeground(new java.awt.Color(31, 58, 147));
         ConvertirAngulos.setText("Conversor de Ángulos");
         ConvertirAngulos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConvertirAngulosActionPerformed(evt);
             }
         });
-        jPanel1.add(ConvertirAngulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 206, 41));
+        jPanel1.add(ConvertirAngulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 190, 41));
+
+        panDesktop.setBackground(new java.awt.Color(237, 237, 237));
+        panDesktop.setPreferredSize(new java.awt.Dimension(660, 500));
 
         javax.swing.GroupLayout panDesktopLayout = new javax.swing.GroupLayout(panDesktop);
         panDesktop.setLayout(panDesktopLayout);
         panDesktopLayout.setHorizontalGroup(
             panDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 660, Short.MAX_VALUE)
         );
         panDesktopLayout.setVerticalGroup(
             panDesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panDesktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 800, 600));
+        jPanel1.add(panDesktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 660, 500));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 700));
+        btnConvertirTemperatura.setBackground(new java.awt.Color(164, 198, 233));
+        btnConvertirTemperatura.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnConvertirTemperatura.setForeground(new java.awt.Color(31, 58, 147));
+        btnConvertirTemperatura.setText("Conversor de Temperaturas");
+        btnConvertirTemperatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConvertirTemperaturaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConvertirTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 190, 41));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

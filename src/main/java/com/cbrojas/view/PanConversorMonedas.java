@@ -4,6 +4,12 @@
  */
 package com.cbrojas.view;
 
+import com.cbrojas.model.MethodKeyEvent;
+import com.cbrojas.model.Monedas;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import javax.swing.BorderFactory;
+
 /**
  *
  * @author cbrojas
@@ -13,8 +19,32 @@ public class PanConversorMonedas extends javax.swing.JPanel {
     /**
      * Creates new form PanConversorMonedas
      */
+    private DecimalFormat formateador;
+    private DecimalFormatSymbols simbolo;
+
     public PanConversorMonedas() {
         initComponents();
+        
+        simbolo = new DecimalFormatSymbols();
+        simbolo.setDecimalSeparator('.');
+
+        formateador = new DecimalFormat("#.##", simbolo);
+
+        inicializandoComboBox();
+
+    }
+
+    private void inicializandoComboBox() {
+        cbxMoneda1.removeAllItems();
+        cbxMoneda2.removeAllItems();
+
+        for (String moneda : Monedas.getMonedas()) {
+            cbxMoneda1.addItem(moneda);
+            cbxMoneda2.addItem(moneda);
+        }
+
+        cbxMoneda1.setSelectedIndex(1);
+        cbxMoneda2.setSelectedIndex(0);
     }
 
     /**
@@ -29,76 +59,138 @@ public class PanConversorMonedas extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
+        txtMoneda1 = new javax.swing.JTextField();
+        cbxMoneda2 = new javax.swing.JComboBox<>();
+        txtMoneda2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cbxMoneda1 = new javax.swing.JComboBox<>();
 
-        setMaximumSize(new java.awt.Dimension(800, 600));
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setMaximumSize(new java.awt.Dimension(660, 500));
+        setMinimumSize(new java.awt.Dimension(660, 500));
+        setPreferredSize(new java.awt.Dimension(660, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
-        jPanel1.setMaximumSize(new java.awt.Dimension(800, 600));
-        jPanel1.setMinimumSize(new java.awt.Dimension(800, 600));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
+        jPanel1.setBackground(new java.awt.Color(237, 237, 237));
+        jPanel1.setMaximumSize(new java.awt.Dimension(660, 500));
+        jPanel1.setMinimumSize(new java.awt.Dimension(660, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(660, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(31, 58, 147));
         jLabel1.setText("CONVERSOR DE MONEDAS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 58, 147));
         jLabel2.setText("De:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
 
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 300, 50));
+        txtMoneda1.setBackground(new java.awt.Color(216, 216, 216));
+        txtMoneda1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        txtMoneda1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMoneda1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMoneda1KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtMoneda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 300, 50));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 240, 40));
+        cbxMoneda2.setBackground(new java.awt.Color(216, 216, 216));
+        cbxMoneda2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cbxMoneda2.setForeground(new java.awt.Color(31, 58, 147));
+        cbxMoneda2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxMoneda2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxMoneda2ItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(cbxMoneda2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 240, 40));
 
-        jTextField2.setText("jTextField1");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 300, 50));
+        txtMoneda2.setBackground(new java.awt.Color(216, 216, 216));
+        txtMoneda2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        txtMoneda2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMoneda2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMoneda2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtMoneda2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 300, 50));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(31, 58, 147));
         jLabel3.setText("Hacia:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 80, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 152, 240, 40));
+        cbxMoneda1.setBackground(new java.awt.Color(216, 216, 216));
+        cbxMoneda1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cbxMoneda1.setForeground(new java.awt.Color(31, 58, 147));
+        cbxMoneda1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxMoneda1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxMoneda1ItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(cbxMoneda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 240, 40));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtMoneda1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMoneda1KeyTyped
+        MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtMoneda1.getText());
+    }//GEN-LAST:event_txtMoneda1KeyTyped
+
+    private void txtMoneda1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMoneda1KeyReleased
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtMoneda1.getText()) ? 0 : Double.parseDouble(txtMoneda1.getText());
+
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
+            txtMoneda2.setText(formateador.format(Monedas.convertirMoneda(cbxMoneda1.getSelectedIndex(), cbxMoneda2.getSelectedIndex(), num)));
+        }
+    }//GEN-LAST:event_txtMoneda1KeyReleased
+
+    private void txtMoneda2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMoneda2KeyTyped
+        MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), txtMoneda2.getText());
+    }//GEN-LAST:event_txtMoneda2KeyTyped
+
+    private void txtMoneda2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMoneda2KeyReleased
+        double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtMoneda2.getText()) ? 0 : Double.parseDouble(txtMoneda2.getText());
+
+        if (MethodKeyEvent.evaluarTeclas(evt.getKeyChar(), num)) {
+            txtMoneda1.setText(formateador.format(Monedas.convertirMoneda(cbxMoneda2.getSelectedIndex(), cbxMoneda1.getSelectedIndex(), num)));
+        }
+    }//GEN-LAST:event_txtMoneda2KeyReleased
+
+    private void cbxMoneda1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxMoneda1ItemStateChanged
+        try {
+            double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtMoneda1.getText()) ? 0 : Double.parseDouble(txtMoneda1.getText());
+            txtMoneda2.setText(formateador.format(Monedas.convertirMoneda(cbxMoneda1.getSelectedIndex(), cbxMoneda2.getSelectedIndex(), num)));
+        } catch (Exception e) {
+            System.out.println("Error 1");
+        }
+    }//GEN-LAST:event_cbxMoneda1ItemStateChanged
+
+    private void cbxMoneda2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxMoneda2ItemStateChanged
+        try {
+            double num = MethodKeyEvent.validarCadenaCajaDeTexto(txtMoneda2.getText()) ? 0 : Double.parseDouble(txtMoneda2.getText());
+            txtMoneda1.setText(formateador.format(Monedas.convertirMoneda(cbxMoneda2.getSelectedIndex(), cbxMoneda1.getSelectedIndex(), num)));
+        } catch (Exception e) {
+            System.out.println("Error 2");
+        }
+    }//GEN-LAST:event_cbxMoneda2ItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> cbxMoneda1;
+    private javax.swing.JComboBox<String> cbxMoneda2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtMoneda1;
+    private javax.swing.JTextField txtMoneda2;
     // End of variables declaration//GEN-END:variables
 }

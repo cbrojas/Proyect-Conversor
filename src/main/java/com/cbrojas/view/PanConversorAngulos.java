@@ -9,6 +9,7 @@ import com.cbrojas.model.MethodKeyEvent;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import javax.swing.border.Border;
 
 /**
  *
@@ -32,7 +33,7 @@ public class PanConversorAngulos extends javax.swing.JPanel {
         simbolo.setDecimalSeparator('.');
 
         formateador = new DecimalFormat("#.##", simbolo);
-
+        
     }
 
     /**
@@ -53,32 +54,38 @@ public class PanConversorAngulos extends javax.swing.JPanel {
         txtAnguloSexagesimal = new javax.swing.JTextField();
         txtAnguloCentesimal = new javax.swing.JTextField();
 
-        setMaximumSize(new java.awt.Dimension(800, 600));
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setMaximumSize(new java.awt.Dimension(660, 500));
+        setMinimumSize(new java.awt.Dimension(660, 500));
+        setPreferredSize(new java.awt.Dimension(660, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(237, 237, 237));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 600));
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(31, 58, 147));
         jLabel1.setText("CONVERSOR DE ÁNGULOS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 58, 147));
         jLabel2.setText("Radianes:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(31, 58, 147));
         jLabel3.setText("Sexagesimal:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(31, 58, 147));
         jLabel4.setText("Centesimal:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
+        txtAnguloRadian.setBackground(new java.awt.Color(216, 216, 216));
+        txtAnguloRadian.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtAnguloRadian.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAnguloRadianKeyReleased(evt);
@@ -87,8 +94,10 @@ public class PanConversorAngulos extends javax.swing.JPanel {
                 txtAnguloRadianKeyTyped(evt);
             }
         });
-        jPanel1.add(txtAnguloRadian, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 280, 50));
+        jPanel1.add(txtAnguloRadian, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 280, 50));
 
+        txtAnguloSexagesimal.setBackground(new java.awt.Color(216, 216, 216));
+        txtAnguloSexagesimal.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtAnguloSexagesimal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAnguloSexagesimalKeyReleased(evt);
@@ -97,8 +106,10 @@ public class PanConversorAngulos extends javax.swing.JPanel {
                 txtAnguloSexagesimalKeyTyped(evt);
             }
         });
-        jPanel1.add(txtAnguloSexagesimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 280, 50));
+        jPanel1.add(txtAnguloSexagesimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 280, 50));
 
+        txtAnguloCentesimal.setBackground(new java.awt.Color(216, 216, 216));
+        txtAnguloCentesimal.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtAnguloCentesimal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAnguloCentesimalKeyReleased(evt);
@@ -107,9 +118,9 @@ public class PanConversorAngulos extends javax.swing.JPanel {
                 txtAnguloCentesimalKeyTyped(evt);
             }
         });
-        jPanel1.add(txtAnguloCentesimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 280, 50));
+        jPanel1.add(txtAnguloCentesimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 280, 50));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAnguloSexagesimalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnguloSexagesimalKeyTyped
