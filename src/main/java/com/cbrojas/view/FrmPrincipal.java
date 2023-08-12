@@ -19,20 +19,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
     PanConversorMonedas panMonedas = new PanConversorMonedas();
     PanConversorAngulos panAngulos = new PanConversorAngulos();
     PanConversorTemperatura panTemperatura = new PanConversorTemperatura();
+    PanPortada panPortada= new PanPortada();
+    
 
     public FrmPrincipal() {
         initComponents();
+        showPanel(panPortada);
 
     }
 
-    private void showPanel(JPanel panel12) {
-        panel12.setSize(800, 600);
-        panel12.setLocation(0, 0);
+    private void showPanel(JPanel panel) {
+        panel.setSize(660, 500);
+        panel.setLocation(0, 0);
 
         panDesktop.removeAll();
         panDesktop.repaint();
 
-        panDesktop.add(panel12);
+        panDesktop.add(panel);
         panDesktop.revalidate();
         panDesktop.repaint();
     }
@@ -53,6 +56,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnConvertirTemperatura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CONVERSOR DE UNIDADES");
         setMaximumSize(new java.awt.Dimension(660, 580));
         setMinimumSize(new java.awt.Dimension(660, 580));
         setPreferredSize(new java.awt.Dimension(660, 580));
